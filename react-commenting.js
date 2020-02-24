@@ -7,19 +7,19 @@
 class App extends Component{
   constructor(){
     super()
-    // 1.
+    // 1. create a state that'll take in users input
     this.state = {
       userInput: "",
     }
   }
 
   robot = (e) => {
-    // 2.
+    // 2. updates the state to whatever the user inputs
     this.setState({ userInput: e.target.value})
   }
 
   render(){
-    // 3.
+    // 3. destructured userInput to variable
     let { userInput } = this.state
 
     return(
@@ -28,16 +28,16 @@ class App extends Component{
 
         <h3>Enter text here:</h3>
         <input
-          {/* 4. */}
+          {/* 4. renders the robot method on change*/}
           onChange={ this.robot }
           {/* 5. */}
           value={ userInput }
         />
 
         <div>
-          {/* 6. */}
+          {/* 6. rendering all components */}
           <GoodRobot
-            {/* 7. */}
+            {/* 7.Components are passed in prop values equal to the userInput state  */}
             userInput={ userInput }
           />
           <BadRobot
@@ -58,14 +58,14 @@ export default App
 class GoodRobot extends Component{
   render(){
     return(
-      // 8.
+      // 8. Good robot component
       <div>
         <h3>Good Robot</h3>
-        {/* 9. */}
+        {/* 9.Returns the userInput through props  */}
         <h4>I hear you saying { this.props.userInput }. Is that correct?</h4>
       </div>
     )
   }
 }
-// 10.
+// 10. export GoodRobot class to be used by other components
 export default GoodRobot
